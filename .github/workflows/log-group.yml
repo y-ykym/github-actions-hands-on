@@ -8,4 +8,4 @@ jobs:
         echo "::group::Show envitoment variables"
         printenv
         echo "::endgroup::"
-      - run echo "not group log"
+      - run: echo "not group log"
