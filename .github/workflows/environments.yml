@@ -1,4 +1,4 @@
-name: Environments-tmp
+name: Environments
 on:
   workflow_dispatch:
     inputs:
