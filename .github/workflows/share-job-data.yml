@@ -1,0 +1,17 @@
+name: Share job data
+on: push
+jobs:
+  giver:
+    runs-on: ubuntu-latest
+    steps:
+      - id: giver-step
+        run: echo "data=from giver" >> "${GITHUB_OUTPUT}"
+    outputs:
+      data: ${{ steps.giver-step.outputs.data }}
+  taker:
+    needs: [giver]
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          DATA: ${{ needs.giver.outputs.data }}
+        run: echo ${DATA}
