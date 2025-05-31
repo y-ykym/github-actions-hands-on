@@ -1,0 +1,14 @@
+name: Debug
+on: push
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/dump/action.yml
+        with: 
+          enable-context: 'true'
+        id: dump
+      - run: echo "DATE"
+        env:
+          DATE: ${{ steps.dump.outputs.dumped-date }}
