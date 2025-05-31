@@ -9,6 +9,6 @@ jobs:
         with: 
           enable-context: 'true'
         id: dump
-      - run: echo "DATE"
+      - run: echo "${DATE}"
         env:
           DATE: ${{ steps.dump.outputs.dumped-date }}
