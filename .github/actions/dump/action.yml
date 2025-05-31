@@ -14,13 +14,13 @@ outputs:
 runs:
   using: composite
   steps:
-    - runs: printenv | sort
+    - run: printenv | sort
       shell: bash
-    - runs: echo "${CONTEXT}"
+    - run: echo "${CONTEXT}"
       if: ${{ inputs.enable-context == 'true' }}
       env:
         CONTEXT: ${{ toJson(github.context) }}
       shell: bash
-    - runs: echo "date=$(date)" >> ${GITHUB_OUTPUT}
+    - run: echo "date=$(date)" >> ${GITHUB_OUTPUT}
       id: current
       shell: bash
